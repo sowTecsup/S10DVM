@@ -45,6 +45,7 @@ namespace Sowtank.Collections
 
             if (head == null)
                 tail = null;
+
             return value;
         }
         public T Peek()
