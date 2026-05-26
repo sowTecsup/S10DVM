@@ -2,12 +2,19 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum PlayerID
+{
+    Player1,
+    Player2,
+    Player3
+}
 public class FirstPersonController : MonoBehaviour
 {
     public InputSystem_Actions inputs;
     private CharacterController controller;
     public CinemachineCamera characterCamera;
     public Animator animator;
+    public PlayerID playerID;
 
 
 
@@ -37,6 +44,18 @@ public class FirstPersonController : MonoBehaviour
     private void OnEnable()
     {
         inputs.Enable();
+        switch (playerID)
+        {
+            case PlayerID.Player1:
+
+                break;
+            case PlayerID.Player2:
+                break;
+            case PlayerID.Player3:
+                break;
+            default:
+                break;
+        }
 
         inputs.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputs.Player.Move.canceled += ctx => moveInput = Vector2.zero;
